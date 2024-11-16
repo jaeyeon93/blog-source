@@ -16,7 +16,10 @@ public class UserNameUpperCaseMethodInterceptor implements MethodInterceptor {
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
         if (method.getName().equals("hello")) {
             String name = (String) args[0];
-            args[0] = name.toUpperCase() + " hello world";
+            for (int i = 0; i < 10; i++) {
+                name += ("Test" + i).toUpperCase();
+            }
+            args[0] = name;
             return proxy.invoke(target, args);
         }
         return target;

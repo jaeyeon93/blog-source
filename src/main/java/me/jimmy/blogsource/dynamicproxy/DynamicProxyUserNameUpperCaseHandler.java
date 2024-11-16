@@ -14,7 +14,10 @@ public class DynamicProxyUserNameUpperCaseHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (method.getName().equals("hello")) {
             String name = (String) args[0];
-            args[0] = name.toUpperCase() + " hello world";
+            for (int i = 0; i < 10; i++) {
+                name += ("Test" + i).toUpperCase();
+            }
+            args[0] = name;
             return method.invoke(target, args);
         }
         return target;

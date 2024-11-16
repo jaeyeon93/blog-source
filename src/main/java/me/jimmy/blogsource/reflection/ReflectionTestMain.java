@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ReflectionTestMain {
     public static void main(String[] args) throws Exception  {
-        int tryCount = 10_000_00;
+        int tryCount = 10_000_000;
         long start = System.currentTimeMillis();
         usingReflection(tryCount);
 //        usingNormal(tryCount);
